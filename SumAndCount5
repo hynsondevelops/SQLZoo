@@ -1,0 +1,57 @@
+1.
+Show the total population of the world.
+
+world(name, continent, area, population, gdp)
+
+SELECT SUM(population)
+FROM world
+Submit SQLRestore default
+result
+List of continents
+2.
+List all the continents - just once each.
+
+
+Submit SQLRestore default
+result
+GDP of Africa
+3.
+Give the total GDP of Africa
+
+
+Submit SQLRestore default
+result
+Count the big countries
+4.
+How many countries have an area of at least 1000000
+
+
+Submit SQLRestore default
+result
+Baltic states population
+5.
+What is the total population of ('Estonia', 'Latvia', 'Lithuania')
+
+
+Submit SQLRestore default
+result
+Using GROUP BY and HAVING
+You may want to look at these examples: Using GROUP BY and HAVING.
+
+Counting the countries of each continent
+6.
+For each continent show the continent and number of countries.
+
+
+Submit SQLRestore default
+result
+Counting big countries in each continent
+7.
+For each continent show the continent and number of countries with populations of at least 10 million.
+
+
+Submit SQLRestore default
+result
+Counting big continents
+8.
+List the continents that have a total population of at least 100 million.

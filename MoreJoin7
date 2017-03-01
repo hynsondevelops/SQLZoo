@@ -1,0 +1,113 @@
+1.
+List the films where the yr is 1962 [Show id, title]
+
+
+SELECT id, title
+ FROM movie
+ WHERE yr=1962
+Submit SQLRestore default
+result
+2.
+Give year of 'Citizen Kane'.
+
+
+Submit SQLRestore default
+result
+3.
+List all of the Star Trek movies, include the id, title and yr (all of these movies include the words Star Trek in the title). Order results by year.
+
+
+Submit SQLRestore default
+result
+Looking at the id field.
+4.
+What id number does the actor 'Glenn Close' have?
+
+
+Submit SQLRestore default
+result
+
+5.
+What is the id of the film 'Casablanca'
+
+
+Submit SQLRestore default
+result
+Get to the point
+6.
+Obtain the cast list for 'Casablanca'.
+
+what is a cast list?
+Use movieid=11768, (or whatever value you got from the previous question)
+
+
+Submit SQLRestore default
+result
+7.
+Obtain the cast list for the film 'Alien'
+
+
+Submit SQLRestore default
+result
+8.
+List the films in which 'Harrison Ford' has appeared
+
+
+Submit SQLRestore default
+result
+9.
+List the films where 'Harrison Ford' has appeared - but not in the starring role. [Note: the ord field of casting gives the position of the actor. If ord=1 then this actor is in the starring role]
+
+
+Submit SQLRestore default
+result
+10.
+List the films together with the leading star for all 1962 films.
+
+
+Submit SQLRestore default
+result
+Harder Questions
+11.
+Which were the busiest years for 'John Travolta', show the year and the number of movies he made each year for any year in which he made more than 2 movies.
+
+
+SELECT yr,COUNT(title) FROM
+  movie JOIN casting ON movie.id=movieid
+         JOIN actor   ON actorid=actor.id
+where name='John Travolta'
+GROUP BY yr
+HAVING COUNT(title)=(SELECT MAX(c) FROM
+(SELECT yr,COUNT(title) AS c FROM
+   movie JOIN casting ON movie.id=movieid
+         JOIN actor   ON actorid=actor.id
+ where name='John Travolta'
+ GROUP BY yr) AS t
+)
+Submit SQLRestore default
+result
+12.
+List the film title and the leading actor for all of the films 'Julie Andrews' played in.
+
+Did you get "Little Miss Marker twice"?
+
+SELECT movieid FROM casting
+WHERE actorid IN (
+  SELECT id FROM actor
+  WHERE name='Julie Andrews')
+Submit SQLRestore default
+result
+13.
+Obtain a list, in alphabetical order, of actors who've had at least 30 starring roles.
+
+
+Submit SQLRestore default
+result
+14.
+List the films released in the year 1978 ordered by the number of actors in the cast, then by title.
+
+
+Submit SQLRestore default
+result
+15.
+List all the people who have worked with 'Art Garfunkel'.
